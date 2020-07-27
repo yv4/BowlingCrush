@@ -1,0 +1,34 @@
+<dependencies>
+  <unityversion>4.1.7.1</unityversion>
+    <androidPackages>
+    <androidPackage spec="com.hyprmx.android:HyprMX-SDK:5.1.0">
+      <repositories>
+        <repository>https://raw.githubusercontent.com/HyprMXMobile/Android-SDKs/master/</repository>
+      </repositories>
+    </androidPackage>
+  </androidPackages>
+
+    <androidPackages>
+    <androidPackage spec="com.android.support:support-annotations:25.1.0">
+      <repositories>
+        <repository>https://maven.google.com/</repository>
+      </repositories>
+    </androidPackage>
+  </androidPackages>
+
+    <androidPackages>
+    <androidPackage spec="com.ironsource.adapters:hyprmxadapter:4.1.4">
+      <repositories>
+        <repository>https://dl.bintray.com/ironsource-mobile/android-adapters/</repository>
+      </repositories>
+    </androidPackage>
+  </androidPackages>
+
+  <iosPods>
+    <iosPod name="IronSourceHyprMXAdapter" version="4.1.4.1">
+      <sources>
+        <source>https://github.com/CocoaPods/Specs</source>
+      </sources>
+    </iosPod>
+  </iosPods>
+</dependencies>
