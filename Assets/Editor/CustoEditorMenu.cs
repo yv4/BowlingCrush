@@ -23,6 +23,21 @@ public class CustoEditorMenu
         }
     }
 
+    [MenuItem("Assets/右键生成代码/改变特效大小")]
+    public static void ChangeTail()
+    {
+        var selects = Selection.GetFiltered<UnityEngine.Object>(SelectionMode.Assets);
+        foreach (var item in selects)
+        {
+            string path = AssetDatabase.GetAssetPath(item);
+            GameObject selGameObj = AssetDatabase.LoadAssetAtPath(path, typeof(GameObject)) as GameObject;
+            ParticleSystem particle = BaseOption.FindChild(selGameObj, "tiaodai").GetComponent<ParticleSystem>();
+            var main = particle.main;
+            main.startSize = new ParticleSystem.MinMaxCurve(3);
+            particle.gameObject.SetActive(false);
+        }
+    }
+
     [MenuItem("Assets/生成障碍物json文件")]
     public static void CreateObstaclesJson()
     {

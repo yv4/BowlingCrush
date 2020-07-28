@@ -11,7 +11,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{E23A12F6-7B0D-03C9-EA66-140D98B1C083}</ProjectGuid>
+    <ProjectGuid>{576A4A9C-26FF-379D-070A-9ED916752672}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -90,6 +90,7 @@
     <Compile Include="Assets\IronSource\Scripts\IronSourceUtils.cs" />
     <Compile Include="Assets\IronSource\Scripts\UnsupportedPlatformAgent.cs" />
     <Compile Include="Assets\Script\BgRender.cs" />
+    <Compile Include="Assets\Script\ChangeParticleSize.cs" />
     <Compile Include="Assets\Script\Frame\BaseRegion.cs" />
     <Compile Include="Assets\Script\Frame\EventObserver\AbstractClass\AbstractEventObserver.cs" />
     <Compile Include="Assets\Script\Frame\EventObserver\EventEnum.cs" />
@@ -403,46 +404,46 @@
     <None Include="Assets\Resources\GameRun\JsonData\Hard\hard12.txt" />
     <None Include="Assets\Resources\GameRun\JsonData\Normal\normal17.txt" />
     <Reference Include="Unity.Timeline.Editor">
-      <HintPath>D:/UnityWork/Bowling 2077/Debug/BowlingClientAdvertiseFinalIOS/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+      <HintPath>D:/UnityWork/BowlingCrushGit/BowlingCrush/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VSCode.Editor">
-      <HintPath>D:/UnityWork/Bowling 2077/Debug/BowlingClientAdvertiseFinalIOS/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+      <HintPath>D:/UnityWork/BowlingCrushGit/BowlingCrush/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>D:/UnityWork/Bowling 2077/Debug/BowlingClientAdvertiseFinalIOS/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>D:/UnityWork/BowlingCrushGit/BowlingCrush/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-      <HintPath>D:/UnityWork/Bowling 2077/Debug/BowlingClientAdvertiseFinalIOS/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+      <HintPath>D:/UnityWork/BowlingCrushGit/BowlingCrush/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline">
-      <HintPath>D:/UnityWork/Bowling 2077/Debug/BowlingClientAdvertiseFinalIOS/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+      <HintPath>D:/UnityWork/BowlingCrushGit/BowlingCrush/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
     </Reference>
     <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>D:/UnityWork/Bowling 2077/Debug/BowlingClientAdvertiseFinalIOS/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+      <HintPath>D:/UnityWork/BowlingCrushGit/BowlingCrush/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.XR.LegacyInputHelpers">
-      <HintPath>D:/UnityWork/Bowling 2077/Debug/BowlingClientAdvertiseFinalIOS/Library/ScriptAssemblies/UnityEngine.XR.LegacyInputHelpers.dll</HintPath>
+      <HintPath>D:/UnityWork/BowlingCrushGit/BowlingCrush/Library/ScriptAssemblies/UnityEngine.XR.LegacyInputHelpers.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Rider.Editor">
-      <HintPath>D:/UnityWork/Bowling 2077/Debug/BowlingClientAdvertiseFinalIOS/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+      <HintPath>D:/UnityWork/BowlingCrushGit/BowlingCrush/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Sprite.Editor">
-      <HintPath>D:/UnityWork/Bowling 2077/Debug/BowlingClientAdvertiseFinalIOS/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
+      <HintPath>D:/UnityWork/BowlingCrushGit/BowlingCrush/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.SpatialTracking">
-      <HintPath>D:/UnityWork/Bowling 2077/Debug/BowlingClientAdvertiseFinalIOS/Library/ScriptAssemblies/UnityEditor.SpatialTracking.dll</HintPath>
+      <HintPath>D:/UnityWork/BowlingCrushGit/BowlingCrush/Library/ScriptAssemblies/UnityEditor.SpatialTracking.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.SpatialTracking">
-      <HintPath>D:/UnityWork/Bowling 2077/Debug/BowlingClientAdvertiseFinalIOS/Library/ScriptAssemblies/UnityEngine.SpatialTracking.dll</HintPath>
+      <HintPath>D:/UnityWork/BowlingCrushGit/BowlingCrush/Library/ScriptAssemblies/UnityEngine.SpatialTracking.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>D:/UnityWork/Bowling 2077/Debug/BowlingClientAdvertiseFinalIOS/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>D:/UnityWork/BowlingCrushGit/BowlingCrush/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.XR.LegacyInputHelpers">
-      <HintPath>D:/UnityWork/Bowling 2077/Debug/BowlingClientAdvertiseFinalIOS/Library/ScriptAssemblies/UnityEditor.XR.LegacyInputHelpers.dll</HintPath>
+      <HintPath>D:/UnityWork/BowlingCrushGit/BowlingCrush/Library/ScriptAssemblies/UnityEditor.XR.LegacyInputHelpers.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
-      <HintPath>D:/UnityWork/Bowling 2077/Debug/BowlingClientAdvertiseFinalIOS/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+      <HintPath>D:/UnityWork/BowlingCrushGit/BowlingCrush/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>D:/UnityLearn/2019.2.21/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -616,40 +617,40 @@
       <HintPath>D:/UnityLearn/2019.2.21/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.XRModule.dll</HintPath>
     </Reference>
     <Reference Include="LitJson">
-      <HintPath>D:/UnityWork/Bowling 2077/Debug/BowlingClientAdvertiseFinalIOS/Assets/Plugins/LitJson.dll</HintPath>
+      <HintPath>D:/UnityWork/BowlingCrushGit/BowlingCrush/Assets/Plugins/LitJson.dll</HintPath>
     </Reference>
     <Reference Include="Facebook.Unity">
-      <HintPath>D:/UnityWork/Bowling 2077/Debug/BowlingClientAdvertiseFinalIOS/Assets/Thirad/AdvertiseCard/FacebookSDK/Plugins/Facebook.Unity.dll</HintPath>
+      <HintPath>D:/UnityWork/BowlingCrushGit/BowlingCrush/Assets/Thirad/AdvertiseCard/FacebookSDK/Plugins/Facebook.Unity.dll</HintPath>
     </Reference>
     <Reference Include="Facebook.Unity.Gameroom">
-      <HintPath>D:/UnityWork/Bowling 2077/Debug/BowlingClientAdvertiseFinalIOS/Assets/Thirad/AdvertiseCard/FacebookSDK/Plugins/Gameroom/Facebook.Unity.Gameroom.dll</HintPath>
+      <HintPath>D:/UnityWork/BowlingCrushGit/BowlingCrush/Assets/Thirad/AdvertiseCard/FacebookSDK/Plugins/Gameroom/Facebook.Unity.Gameroom.dll</HintPath>
     </Reference>
     <Reference Include="FacebookNamedPipeClient">
-      <HintPath>D:/UnityWork/Bowling 2077/Debug/BowlingClientAdvertiseFinalIOS/Assets/Thirad/AdvertiseCard/FacebookSDK/Plugins/Gameroom/FacebookNamedPipeClient.dll</HintPath>
+      <HintPath>D:/UnityWork/BowlingCrushGit/BowlingCrush/Assets/Thirad/AdvertiseCard/FacebookSDK/Plugins/Gameroom/FacebookNamedPipeClient.dll</HintPath>
     </Reference>
     <Reference Include="Facebook.Unity.Settings">
-      <HintPath>D:/UnityWork/Bowling 2077/Debug/BowlingClientAdvertiseFinalIOS/Assets/Thirad/AdvertiseCard/FacebookSDK/Plugins/Settings/Facebook.Unity.Settings.dll</HintPath>
+      <HintPath>D:/UnityWork/BowlingCrushGit/BowlingCrush/Assets/Thirad/AdvertiseCard/FacebookSDK/Plugins/Settings/Facebook.Unity.Settings.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
-      <HintPath>D:/UnityWork/Bowling 2077/Debug/BowlingClientAdvertiseFinalIOS/Assets/Thirad/AdvertiseCard/RewardCardSDK/Plugins/Json/Newtonsoft.Json.dll</HintPath>
+      <HintPath>D:/UnityWork/BowlingCrushGit/BowlingCrush/Assets/Thirad/AdvertiseCard/RewardCardSDK/Plugins/Json/Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="DemiLib">
-      <HintPath>D:/UnityWork/Bowling 2077/Debug/BowlingClientAdvertiseFinalIOS/Assets/Thirad/Demigiant/DemiLib/DemiLib.dll</HintPath>
+      <HintPath>D:/UnityWork/BowlingCrushGit/BowlingCrush/Assets/Thirad/Demigiant/DemiLib/DemiLib.dll</HintPath>
     </Reference>
     <Reference Include="DOTween">
-      <HintPath>D:/UnityWork/Bowling 2077/Debug/BowlingClientAdvertiseFinalIOS/Assets/Thirad/Demigiant/DOTween/DOTween.dll</HintPath>
+      <HintPath>D:/UnityWork/BowlingCrushGit/BowlingCrush/Assets/Thirad/Demigiant/DOTween/DOTween.dll</HintPath>
     </Reference>
     <Reference Include="DOTween43">
-      <HintPath>D:/UnityWork/Bowling 2077/Debug/BowlingClientAdvertiseFinalIOS/Assets/Thirad/Demigiant/DOTween/DOTween43.dll</HintPath>
+      <HintPath>D:/UnityWork/BowlingCrushGit/BowlingCrush/Assets/Thirad/Demigiant/DOTween/DOTween43.dll</HintPath>
     </Reference>
     <Reference Include="DOTween46">
-      <HintPath>D:/UnityWork/Bowling 2077/Debug/BowlingClientAdvertiseFinalIOS/Assets/Thirad/Demigiant/DOTween/DOTween46.dll</HintPath>
+      <HintPath>D:/UnityWork/BowlingCrushGit/BowlingCrush/Assets/Thirad/Demigiant/DOTween/DOTween46.dll</HintPath>
     </Reference>
     <Reference Include="DOTween50">
-      <HintPath>D:/UnityWork/Bowling 2077/Debug/BowlingClientAdvertiseFinalIOS/Assets/Thirad/Demigiant/DOTween/DOTween50.dll</HintPath>
+      <HintPath>D:/UnityWork/BowlingCrushGit/BowlingCrush/Assets/Thirad/Demigiant/DOTween/DOTween50.dll</HintPath>
     </Reference>
     <Reference Include="DOTweenPro">
-      <HintPath>D:/UnityWork/Bowling 2077/Debug/BowlingClientAdvertiseFinalIOS/Assets/Thirad/Demigiant/DOTweenPro/DOTweenPro.dll</HintPath>
+      <HintPath>D:/UnityWork/BowlingCrushGit/BowlingCrush/Assets/Thirad/Demigiant/DOTweenPro/DOTweenPro.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.iOS.Extensions.Xcode">
       <HintPath>D:/UnityLearn/2019.2.21/Unity/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
@@ -1014,27 +1015,27 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
-      <Project>{B8A9D4C5-D5C6-ED18-D30B-4A0AF7FBBA40}</Project>
+      <Project>{98FA76BE-3A40-F4DC-15AD-481F64B95799}</Project>
       <Name>Assembly-CSharp-firstpass</Name>
     </ProjectReference>
     <ProjectReference Include="ACTk.Examples.Genuine.Runtime.csproj">
-      <Project>{4ACE2354-F167-FCA2-36B4-B860650A71D4}</Project>
+      <Project>{D5CCC91E-4D21-82E2-E8CB-F5AF34976617}</Project>
       <Name>ACTk.Examples.Genuine.Runtime</Name>
     </ProjectReference>
     <ProjectReference Include="ACTk.Runtime.csproj">
-      <Project>{C59D7272-7B54-BF70-121A-705F30631B40}</Project>
+      <Project>{498FA3AA-9494-45D0-62A9-6D024FE900F2}</Project>
       <Name>ACTk.Runtime</Name>
     </ProjectReference>
     <ProjectReference Include="ACTk.Editor.csproj">
-      <Project>{2112384A-5C81-54FC-D13E-DF43A9D90C94}</Project>
+      <Project>{A5D16E50-9CF0-97D0-AF06-3BE7F383CFF5}</Project>
       <Name>ACTk.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="ACTk.Examples.Genuine.Editor.csproj">
-      <Project>{7B2B3DAC-A2E6-954C-373A-20CDBC82EC4B}</Project>
+      <Project>{32016F74-C454-39F9-DE96-4340763A05E3}</Project>
       <Name>ACTk.Examples.Genuine.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="ACTk.Examples.Runtime.csproj">
-      <Project>{BFA59028-02E8-5678-CF20-F21873099FB8}</Project>
+      <Project>{249C7318-BB98-37F0-D90B-DF666CEFA738}</Project>
       <Name>ACTk.Examples.Runtime</Name>
     </ProjectReference>
   </ItemGroup>
