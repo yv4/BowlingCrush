@@ -20,6 +20,8 @@ public class PlayerMoveAction : RoleMoveAction
     private Transform m_Mesh;
     private float m_MaxRightX = 21;
     private float m_MaxLeftX = -21;
+    public GameObject Camera;
+    private float m_MoveDistance = 0;
 
     #endregion
 
@@ -44,6 +46,7 @@ public class PlayerMoveAction : RoleMoveAction
         {
             HandleMove();
             HandleRotate();
+            BallMove();
         }
         
     }
@@ -64,6 +67,28 @@ public class PlayerMoveAction : RoleMoveAction
     #endregion
 
     #region 成员方法
+
+    /// <summary>
+    /// 球移动
+    /// </summary>
+    private void BallMove()
+    {
+        float tempSpeed = LocalDataMgr.Instance.LevelRunSpeed * GameTags.SingleFrame;
+        transform.Translate(1 * transform.forward * tempSpeed);
+        Vector3 camDir = 1 * new Vector3(0, 0, 1) * tempSpeed;
+        Camera.transform.transform.Translate(camDir);
+
+        if (m_MoveDistance<GameTags.TriggerChangeRoadDistance)
+        {
+            m_MoveDistance += tempSpeed;
+        }
+        else
+        {
+            m_MoveDistance = 0;
+            EventObserverMgr<int>.Instance.Dispatch(ObserverEventType.PlayerCtrlEvent, ObserverEventContent.RoadChange);
+        }
+    }
+
 
     /// <summary>
     /// 停止移动

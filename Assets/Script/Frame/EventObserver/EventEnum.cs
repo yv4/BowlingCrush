@@ -44,6 +44,7 @@ public enum ObserverEventContent
     TaskBounceCoin,//任务奖励金币
     AdvertiseCardDollar,//激励卡现金奖励
     ContinueMove,//复活后再移动
+    RoadChange,//路面改变
 
     #endregion
 

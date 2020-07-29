@@ -11,11 +11,13 @@ public class GameRunEnvCtrl : AbstractCtrlBase
     private Transform m_BottlesParent;
     public float MaxLevelLength = 0;//关卡最大长度
     private float m_AddZ = 0;
+    private int m_RoadChangeIndex = 0;
+    private float m_MaxZ = 774.7f;
 
     #region 路段生成相关
 
-    private float m_ChunkZLength = 48;//单个路段长度
-    private float m_InitChunkZLenth = -48;//首个路段z位置
+    private float m_ChunkZLength = 55;//单个路段长度
+    private float m_InitChunkZLenth = -55;//首个路段z位置
     private float m_LastChunkZLenth = 0;//最后一个路段z位置
     private float m_ChunckDisappearLenth = 0;//路段消失距离
     public int ChunkCount = 5;//路段数
@@ -75,6 +77,19 @@ public class GameRunEnvCtrl : AbstractCtrlBase
         {
             item.MoveCtrl(enable);
         }
+    }
+
+    /// <summary>
+    /// 改变路块
+    /// </summary>
+    public void ChangeRoad()
+    {
+        int maxCount = RoadChunks.Count;
+        int index = m_RoadChangeIndex % maxCount;
+        ChunkBehaviour chunkBeha = RoadChunks[index];
+        chunkBeha.transform.localPosition = new Vector3(0, 0, m_MaxZ+ GameTags.TriggerChangeRoadDistance * m_RoadChangeIndex);
+        m_RoadChangeIndex++;
+
     }
 
     /// <summary>
@@ -599,7 +614,7 @@ public class GameRunEnvCtrl : AbstractCtrlBase
 
     }
 
-    #endregion
+    #endregion\
 
     #region 委托方法
 
