@@ -32,11 +32,11 @@ public class ChunkMoveAction : RoleMoveAction
     {
         base.OnUpdate();
 
-        if (MoveEnable)
-        {
-            ChunkMove();
-            CheckBorder();
-        }
+        //if (MoveEnable)
+        //{
+        //    ChunkMove();
+        //    CheckBorder();
+        //}
         
     }
 

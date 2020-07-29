@@ -68,6 +68,7 @@ public class GameRunMgr : AbstractMgrBase
         EventObserverMgr<int>.Instance.RegisterAction(ObserverEventType.PlayerCtrlEvent, ObserverEventContent.RePlayGame, RePlayGameMethod);
         EventObserverMgr<float>.Instance.RegisterAction(ObserverEventType.PlayerCtrlEvent, ObserverEventContent.AdvertiseCardDollar, AdvertiseCardDollarMethod);
         EventObserverMgr<int>.Instance.RegisterAction(ObserverEventType.PlayerCtrlEvent, ObserverEventContent.ContinueMove, ContinueMoveMethod);
+        EventObserverMgr<int>.Instance.RegisterAction(ObserverEventType.PlayerCtrlEvent, ObserverEventContent.RoadChange, RoadChangeMethod);
 
         #endregion
     }
@@ -158,9 +159,11 @@ public class GameRunMgr : AbstractMgrBase
         EventObserverMgr<int>.Instance.RemoveEventListener(ObserverEventType.PlayerCtrlEvent, ObserverEventContent.RePlayGame, RePlayGameMethod);
         EventObserverMgr<float>.Instance.RemoveEventListener(ObserverEventType.PlayerCtrlEvent, ObserverEventContent.AdvertiseCardDollar, AdvertiseCardDollarMethod);
         EventObserverMgr<int>.Instance.RemoveEventListener(ObserverEventType.PlayerCtrlEvent, ObserverEventContent.ContinueMove, ContinueMoveMethod);
+        EventObserverMgr<int>.Instance.RemoveEventListener(ObserverEventType.PlayerCtrlEvent, ObserverEventContent.RoadChange, RoadChangeMethod);
 
         #endregion
     }
+
 
     #endregion
 
@@ -775,6 +778,15 @@ public class GameRunMgr : AbstractMgrBase
     private void RefreshViceModelMoney()
     {
 
+    }
+
+    /// <summary>
+    /// 道路改变方法
+    /// </summary>
+    /// <param name="parameter"></param>
+    private void RoadChangeMethod(int parameter)
+    {
+        m_EnvCtrl.ChangeRoad();
     }
 
     /// <summary>

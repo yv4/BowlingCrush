@@ -219,6 +219,7 @@ public static class GameTags
     public const float RoadLeftMax = -1;
     public const float RoadRightMax = 1;
     public const float ZOffset = 0;
+    public const float TriggerChangeRoadDistance = 55;
 
     #endregion
 
