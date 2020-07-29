@@ -32,7 +32,7 @@ public class SpawnItemBehaviour : AbstractRoleBehaviour
     {
         base.OnUpdate();
 
-        if (this.transform.position.z<-180)
+        if (this.transform.position.z < -180)
         {
             this.gameObject.SetActive(false);
             //Destroy(this.gameObject);

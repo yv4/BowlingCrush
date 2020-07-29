@@ -30,7 +30,7 @@ public class ChunkBehaviour : AbstractRoleBehaviour
 
     protected override void OnUpdate()
     {
-        base.OnUpdate();
+        //base.OnUpdate();
     }
 
     #endregion

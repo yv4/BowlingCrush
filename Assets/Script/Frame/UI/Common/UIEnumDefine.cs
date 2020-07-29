@@ -13,6 +13,7 @@ public enum SceneType
     GameInit,
     GameLoading,
     GameRun,
+    NewRun,
     GameStart,
     Category,
     Shop,

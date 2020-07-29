@@ -43,7 +43,7 @@ public class DownObstacleBehaviour : SpawnItemBehaviour
 
     }
 
-    public override void Collider()
+    public override void Collider(Transform collider = null)
     {
         base.Collider();
         EventObserverMgr<int>.Instance.Dispatch(ObserverEventType.PlayerCtrlEvent, ObserverEventContent.HitByObstacle);

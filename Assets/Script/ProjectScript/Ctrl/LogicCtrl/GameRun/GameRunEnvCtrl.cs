@@ -12,7 +12,7 @@ public class GameRunEnvCtrl : AbstractCtrlBase
     public float MaxLevelLength = 0;//关卡最大长度
     private float m_AddZ = 0;
     private int m_RoadChangeIndex = 0;
-    private float m_MaxZ = 774.7f;
+    private float m_MaxZ = -1050;
 
     #region 路段生成相关
 
@@ -87,7 +87,7 @@ public class GameRunEnvCtrl : AbstractCtrlBase
         int maxCount = RoadChunks.Count;
         int index = m_RoadChangeIndex % maxCount;
         ChunkBehaviour chunkBeha = RoadChunks[index];
-        chunkBeha.transform.localPosition = new Vector3(0, 0, m_MaxZ+ GameTags.TriggerChangeRoadDistance * m_RoadChangeIndex);
+        chunkBeha.transform.localPosition = new Vector3(0, 0, m_MaxZ - GameTags.TriggerChangeRoadDistance * m_RoadChangeIndex);
         m_RoadChangeIndex++;
 
     }
@@ -97,20 +97,20 @@ public class GameRunEnvCtrl : AbstractCtrlBase
     /// </summary>
     public void SpawnAllRoad()
     {
-        for (int i = 0; i < ChunkCount; i++)
-        {
-            GameObject chunk = ResourcesMgr.Instance.Load(GameTags.RoadChunks);
-            ChunkBehaviour chunkBeha = chunk.GetComponent<ChunkBehaviour>();
-            chunkBeha.SetChunkIndex(i);
-            chunk.transform.SetParent(m_EnvParent);
-            chunk.transform.localPosition = Vector3.zero;
-            Vector3 newPos = Vector3.zero;
-            newPos = new Vector3(0, 0, m_InitChunkZLenth + i * m_ChunkZLength);
-            chunk.transform.localPosition = newPos;
-            chunkBeha.SetInitPos(newPos);
-            m_ChunckDisappearLenth = chunkBeha.GetChunkDisappearLength();
-            RoadChunks.Add(chunkBeha);
-        }
+        //for (int i = 0; i < ChunkCount; i++)
+        //{
+        //    GameObject chunk = ResourcesMgr.Instance.Load(GameTags.RoadChunks);
+        //    ChunkBehaviour chunkBeha = chunk.GetComponent<ChunkBehaviour>();
+        //    chunkBeha.SetChunkIndex(i);
+        //    chunk.transform.SetParent(m_EnvParent);
+        //    chunk.transform.localPosition = Vector3.zero;
+        //    Vector3 newPos = Vector3.zero;
+        //    newPos = new Vector3(0, 0, m_InitChunkZLenth + i * m_ChunkZLength);
+        //    chunk.transform.localPosition = newPos;
+        //    chunkBeha.SetInitPos(newPos);
+        //    m_ChunckDisappearLenth = chunkBeha.GetChunkDisappearLength();
+        //    RoadChunks.Add(chunkBeha);
+        //}
     }
 
     public void ReplayGame()

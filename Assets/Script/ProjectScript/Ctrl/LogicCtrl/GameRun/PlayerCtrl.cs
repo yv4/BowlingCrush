@@ -47,10 +47,10 @@ public class PlayerCtrl : AbstractCtrlBase
     {
         base.OnUpdate();
 
-        if (StartCountTime)
-        {
-            CountRunTime();
-        }
+        //if (StartCountTime)
+        //{
+        //    CountRunTime();
+        //}
 
     }
 

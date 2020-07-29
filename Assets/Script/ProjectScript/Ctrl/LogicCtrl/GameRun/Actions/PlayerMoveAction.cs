@@ -8,6 +8,9 @@ public class PlayerMoveAction : RoleMoveAction
 {
 
     #region 成员变量
+
+    public GameObject Camera;
+    public GameObject Env;
     public bool MoveEnable = true;
     public float MoveSpeed = 3;
     public float RotateSpeed = 5;
@@ -20,8 +23,10 @@ public class PlayerMoveAction : RoleMoveAction
     private Transform m_Mesh;
     private float m_MaxRightX = 21;
     private float m_MaxLeftX = -21;
-    public GameObject Camera;
     private float m_MoveDistance = 0;
+    private float m_AddDistance = 0;
+    private Vector3 m_CameraDistance = Vector3.zero;
+    private float m_Errval = 2;
 
     #endregion
 
@@ -31,6 +36,7 @@ public class PlayerMoveAction : RoleMoveAction
     {
         base.GetMemberReference();
         m_Mesh = BaseOption.FindChild(this.gameObject, "Mesh").transform;
+        m_CameraDistance = Camera.transform.position - this.transform.position;
     }
 
     protected override void OnInit()
@@ -75,12 +81,14 @@ public class PlayerMoveAction : RoleMoveAction
     {
         float tempSpeed = LocalDataMgr.Instance.LevelRunSpeed * GameTags.SingleFrame;
         transform.Translate(1 * transform.forward * tempSpeed);
-        Vector3 camDir = 1 * new Vector3(0, 0, 1) * tempSpeed;
-        Camera.transform.transform.Translate(camDir);
-
-        if (m_MoveDistance<GameTags.TriggerChangeRoadDistance)
+        Vector3 tempDir = -1 * new Vector3(0, 0, 1) * tempSpeed;
+        Vector3 tempVal = transform.position + m_CameraDistance;
+        Camera.transform.position = new Vector3(Camera.transform.position.x, Camera.transform.position.y, tempVal.z);
+        Env.transform.Translate(tempDir);
+        if (m_MoveDistance<(GameTags.TriggerChangeRoadDistance+m_AddDistance-m_Errval))
         {
             m_MoveDistance += tempSpeed;
+
         }
         else
         {

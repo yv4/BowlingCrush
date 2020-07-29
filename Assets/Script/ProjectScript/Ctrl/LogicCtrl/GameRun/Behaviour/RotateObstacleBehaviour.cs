@@ -44,7 +44,7 @@ public class RotateObstacleBehaviour : SpawnItemBehaviour
         m_RotateAction.MoveCtrl(enable);
     }
 
-    public override void Collider()
+    public override void Collider(Transform collider = null)
     {
         base.Collider();
         EventObserverMgr<int>.Instance.Dispatch(ObserverEventType.PlayerCtrlEvent, ObserverEventContent.HitByObstacle);

@@ -33,11 +33,11 @@ public class DollorBehaviour : SpawnItemBehaviour
 
     #region 成员方法
 
-    public override void Collider()
+    public override void Collider(Transform collider = null)
     {
         base.Collider();
 
-        if (BounceVal>1)
+        if (BounceVal > 1)
         {
 
             AudioEffectMgr.Instance.PlayShock();

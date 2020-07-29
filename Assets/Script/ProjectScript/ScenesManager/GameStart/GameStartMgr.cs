@@ -357,7 +357,8 @@ public class GameStartMgr : AbstractMgrBase
     {
         GameObjPool.Instance.ClearPool();
         UserPeresistData.Instance.SaveToJson();
-        EventObserverMgr<SceneType>.Instance.Dispatch(ObserverEventType.PlayerCtrlEvent, ObserverEventContent.EnterNewScene, SceneType.GameRun);
+        //EventObserverMgr<SceneType>.Instance.Dispatch(ObserverEventType.PlayerCtrlEvent, ObserverEventContent.EnterNewScene, SceneType.GameRun);
+        EventObserverMgr<SceneType>.Instance.Dispatch(ObserverEventType.PlayerCtrlEvent, ObserverEventContent.EnterNewScene, SceneType.NewRun);
     }
 
     /// <summary>

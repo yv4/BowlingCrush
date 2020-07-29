@@ -13,6 +13,7 @@ public class BottleHitAction : AbstractRoleAction
     private List<GameObject> m_MeshsObj = new List<GameObject>();
     private List<ParticleSystem> m_EffectObj = new List<ParticleSystem>();
     private bool m_Shake;
+    public bool SingleCollider;
 
     #endregion
 
@@ -78,7 +79,7 @@ public class BottleHitAction : AbstractRoleAction
     /// <summary>
     /// 开始碰撞
     /// </summary>
-    public void StartCollider()
+    public void StartCollider(Transform collider)
     {
 
         if (m_MeshsObj.Count > 1 && !m_Shake)
@@ -88,29 +89,46 @@ public class BottleHitAction : AbstractRoleAction
             m_Shake = true;
         }
 
-        foreach (GameObject item in m_MeshsObj)
+        if (!SingleCollider)
         {
-            Vector3 force = new Vector3(Random.Range(-30f, 30f), Random.Range(30f, 40f), FlySpeed);
-            item.transform.DOMove(force, 0.5f).SetEase(Ease.OutCirc);
-            item.transform.DORotate(new Vector3(360, 0), Random.Range(0.2f, 1f), RotateMode.WorldAxisAdd).SetLoops(Random.Range(2, 5)).SetEase(Ease.Linear);
-            Timer.Register(DisappearTime, () => {
 
-                foreach (GameObject mesh in m_MeshsObj)
-                {
-                    mesh.GetComponent<MeshRenderer>().enabled = false;
-                    ParticleSystem dead = mesh.GetComponentInChildren<ParticleSystem>();
-                    dead.Play();
-                }
-            });
+            foreach (GameObject item in m_MeshsObj)
+            {
 
- 
+                ColliderBottleFly(item);
+
+            }
+
+            if (m_MeshsObj.Count > 1)
+            {
+                AudioEffectMgr.Instance.PlayShock();
+            }
+        }
+        else
+        {
+            ColliderBottleFly(collider.gameObject);
         }
 
-        if (m_MeshsObj.Count>1)
-        {
-            AudioEffectMgr.Instance.PlayShock();
-        }
 
+    }
+
+    /// <summary>
+    /// 击飞
+    /// </summary>
+    private void ColliderBottleFly(GameObject item)
+    {
+        Vector3 force = new Vector3(Random.Range(-30f, 30f), Random.Range(30f, 40f), FlySpeed);
+        item.transform.DOLocalMove(force, 0.5f).SetEase(Ease.OutCirc);
+        item.transform.DORotate(new Vector3(360, 0), Random.Range(0.2f, 1f), RotateMode.WorldAxisAdd).SetLoops(Random.Range(2, 5)).SetEase(Ease.Linear);
+        Timer.Register(DisappearTime, () => {
+
+            foreach (GameObject mesh in m_MeshsObj)
+            {
+                mesh.GetComponent<MeshRenderer>().enabled = false;
+                ParticleSystem dead = mesh.GetComponentInChildren<ParticleSystem>();
+                dead.Play();
+            }
+        });
     }
 
     #endregion

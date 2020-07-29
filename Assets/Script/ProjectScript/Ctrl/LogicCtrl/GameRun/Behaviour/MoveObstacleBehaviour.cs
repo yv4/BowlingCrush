@@ -48,7 +48,7 @@ public class MoveObstacleBehaviour : SpawnItemBehaviour
         m_HMoveAction.MoveCtrl(enable);
     }
 
-    public override void Collider()
+    public override void Collider(Transform collider = null)
     {
         base.Collider();
         EventObserverMgr<int>.Instance.Dispatch(ObserverEventType.PlayerCtrlEvent, ObserverEventContent.HitByObstacle);
@@ -59,8 +59,8 @@ public class MoveObstacleBehaviour : SpawnItemBehaviour
     /// </summary>
     public void CheckPlayerDistance()
     {
-        float distance =  this.transform.position.z;
-        if (distance<PlayerDistance)
+        float distance = this.transform.position.z;
+        if (distance < PlayerDistance)
         {
             m_HMoveAction.HMoveEnable = true;
         }

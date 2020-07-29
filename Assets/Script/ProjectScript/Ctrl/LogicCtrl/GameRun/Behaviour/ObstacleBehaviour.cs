@@ -30,7 +30,7 @@ public class ObstacleBehaviour : SpawnItemBehaviour
 
     #region 成员方法
 
-    public override void Collider()
+    public override void Collider(Transform collider = null)
     {
         base.Collider();
 
