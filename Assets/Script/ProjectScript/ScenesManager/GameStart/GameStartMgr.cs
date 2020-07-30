@@ -68,11 +68,7 @@ public class GameStartMgr : AbstractMgrBase
 
     protected override void OnInit()
     {
-        Debug.Log("UM Start");
-        Timer.Register(1, () =>
-        {
-            SceneMgrMaster.Instance.CloseLoader();
-        });
+
 
         SetPlayerMesh();
         UserResourceEntity userData = UserPeresistData.Instance.GetUserResource();
@@ -89,6 +85,12 @@ public class GameStartMgr : AbstractMgrBase
         m_UICtrl.SetFinishStar(userData.FinishStarCount);
   
         RewardGiftSDK.Init(RefreshViceModelMoney);
+        SceneMgrMaster.Instance.CloseLoader();
+
+        //Timer.Register(1, () =>
+        //{
+        //    SceneMgrMaster.Instance.CloseLoader();
+        //});
 
         #region 测试代码
 
@@ -357,8 +359,8 @@ public class GameStartMgr : AbstractMgrBase
     {
         GameObjPool.Instance.ClearPool();
         UserPeresistData.Instance.SaveToJson();
-        //EventObserverMgr<SceneType>.Instance.Dispatch(ObserverEventType.PlayerCtrlEvent, ObserverEventContent.EnterNewScene, SceneType.GameRun);
-        EventObserverMgr<SceneType>.Instance.Dispatch(ObserverEventType.PlayerCtrlEvent, ObserverEventContent.EnterNewScene, SceneType.NewRun);
+        EventObserverMgr<SceneType>.Instance.Dispatch(ObserverEventType.PlayerCtrlEvent, ObserverEventContent.EnterNewScene, SceneType.GameRun);
+        //EventObserverMgr<SceneType>.Instance.Dispatch(ObserverEventType.PlayerCtrlEvent, ObserverEventContent.EnterNewScene, SceneType.NewRun);
     }
 
     /// <summary>

@@ -27,6 +27,7 @@ public class PlayerMoveAction : RoleMoveAction
     private float m_AddDistance = 0;
     private Vector3 m_CameraDistance = Vector3.zero;
     private float m_Errval = 2;
+    private Vector3 m_TempMoveVal = Vector3.zero;
 
     #endregion
 
@@ -83,7 +84,12 @@ public class PlayerMoveAction : RoleMoveAction
         transform.Translate(1 * transform.forward * tempSpeed);
         Vector3 tempDir = -1 * new Vector3(0, 0, 1) * tempSpeed;
         Vector3 tempVal = transform.position + m_CameraDistance;
-        Camera.transform.position = new Vector3(Camera.transform.position.x, Camera.transform.position.y, tempVal.z);
+
+        m_TempMoveVal.x = Camera.transform.position.x;
+        m_TempMoveVal.y = Camera.transform.position.y;
+        m_TempMoveVal.z = tempVal.z;
+
+        Camera.transform.position = m_TempMoveVal;
         Env.transform.Translate(tempDir);
         if (m_MoveDistance<(GameTags.TriggerChangeRoadDistance+m_AddDistance-m_Errval))
         {

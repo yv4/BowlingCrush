@@ -16,9 +16,10 @@ public class UILoadingCtrl : AbstractCtrlBase
 
     private GameObject m_loadingParent;
 
-    private Slider m_ProgressSlider;
+    private Scrollbar m_ProgressSlider;
 
     private Image m_LoadingBg;
+    private bool m_SetComplete;
 
     #endregion
 
@@ -41,6 +42,11 @@ public class UILoadingCtrl : AbstractCtrlBase
     {
         base.OnUpdate();
 
+        if (m_SetComplete)
+        {
+            m_LoadingTimer = 100;
+        }
+
         if (m_StartLoading)
         {
             if (!NoLoad)
@@ -53,14 +59,15 @@ public class UILoadingCtrl : AbstractCtrlBase
               
             }
 
-            m_ProgressSlider.value = m_LoadingTimer * 0.01f;
+            m_ProgressSlider.size = m_LoadingTimer * 0.01f;
             m_LoadingText.text = m_LoadingTimer.ToString();
         }
 
-        if (m_LoadingTimer==100&&m_StartLoading)
+        if (m_LoadingTimer>=100&&m_StartLoading)
         {
-            m_ProgressSlider.value = 1;
+            //m_ProgressSlider.value = 1;
             m_StartLoading = false;
+            m_SetComplete = false;
             EventObserverMgr<SceneType>.Instance.Dispatch(ObserverEventType.PlayerCtrlEvent, ObserverEventContent.GameLoadingSuccessOptionEvent, SceneMgrMaster.Instance.NextScene);
         }
        
@@ -85,8 +92,8 @@ public class UILoadingCtrl : AbstractCtrlBase
     {
         GameObject canvas = BaseOption.GetCanvas("LoadingCanvas"); 
         this.m_loadingParent= BaseOption.FindChild(canvas, "Loader");
-        this.m_LoadingText = BaseOption.FindChild<Text>(canvas, "TimeText");
-        this.m_ProgressSlider = BaseOption.FindChild<Slider>(canvas, "Slider");
+        this.m_LoadingText = BaseOption.FindChild<Text>(canvas, "PercentText");
+        this.m_ProgressSlider = BaseOption.FindChild<Scrollbar>(canvas, "Scrollbar");
     }
 
     protected override void OnInit()
@@ -97,6 +104,11 @@ public class UILoadingCtrl : AbstractCtrlBase
     #endregion
 
     #region 成员方法
+
+    public void SetCompleteLoad()
+    {
+        m_SetComplete = true;
+    }
 
     /// <summary>
     /// 设置背景色透明
@@ -125,7 +137,7 @@ public class UILoadingCtrl : AbstractCtrlBase
     public void ResetLoading()
     {
         this.m_LoadingTimer = 0;
-        this.m_LoadingText.text = "";
+        //this.m_LoadingText.text = "";
     }
     #endregion
 }

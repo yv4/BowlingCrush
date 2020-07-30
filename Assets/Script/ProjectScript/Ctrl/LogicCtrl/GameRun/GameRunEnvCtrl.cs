@@ -180,18 +180,24 @@ public class GameRunEnvCtrl : AbstractCtrlBase
 
             if (i > 0)
             {
-                List<string[]> lastItemDatas = bottleDatas[i - 1];
-                string[] posStrs = lastItemDatas[lastItemDatas.Count - 1];
-                float z = float.Parse(posStrs[2]);
-                offSet += z;
-                if (i > 1)
-                {
-                    string[] firstPoszStr = lastItemDatas[0];
-                    float firstZVal = float.Parse(firstPoszStr[2]);
-                    offSet -= firstZVal - 100;
-                }
+                //List<string[]> lastItemDatas = bottleDatas[i - 1];
+                //string[] posStrs = lastItemDatas[lastItemDatas.Count - 1];
+                //float z = float.Parse(posStrs[2]);
+                //offSet += z;
+                //if (i > 1)
+                //{
+                //    string[] firstPoszStr = lastItemDatas[0];
+                //    float firstZVal = float.Parse(firstPoszStr[2]);
+                //    offSet -= firstZVal - 100;
+                //}
 
-                SpawnBottlesAndObstacleWithZOffset(itemDatas, offSet, isDollar);
+                if (offSet>0)
+                {
+                    offSet += 50;
+                }
+              
+
+                offSet = SpawnBottlesAndObstacleWithZOffset(itemDatas, offSet, isDollar);
 
                 if (i == bottleDatas.Count - 1)
                 {
@@ -207,7 +213,7 @@ public class GameRunEnvCtrl : AbstractCtrlBase
             }
             else
             {
-                SpawnBottlesAndObstacle(itemDatas, isDollar);
+               offSet =  SpawnBottlesAndObstacle(itemDatas, isDollar);
             }
 
         }
@@ -247,10 +253,21 @@ public class GameRunEnvCtrl : AbstractCtrlBase
     }
 
     /// <summary>
+    /// 获取速度加值
+    /// </summary>
+    /// <returns></returns>
+    private float GetAddSpeedVal(int index)
+    {
+        //return index * LocalDataMgr.Instance.LevelRunSpeed / 10f;
+        return index * 100; 
+    }
+
+    /// <summary>
     /// 生成球瓶和障碍
     /// </summary>
-    public void SpawnBottlesAndObstacle(List<string[]> bottleDatas, bool isDollar)
+    public float SpawnBottlesAndObstacle(List<string[]> bottleDatas, bool isDollar)
     {
+        float retVal = 0;
         if (CheckLevelHaveDollorEnterChance())
         {
             m_HaveSpawnDollorEner = true;
@@ -289,7 +306,7 @@ public class GameRunEnvCtrl : AbstractCtrlBase
             float x = float.Parse(item[0]);
             float y = float.Parse(item[1]);
             float z = float.Parse(item[2]);
-
+         
             string chunkType = item[3].ToString();
             if (isDollar)
             {
@@ -308,6 +325,7 @@ public class GameRunEnvCtrl : AbstractCtrlBase
 
             }
 
+            z += GetAddSpeedVal(i);
 
             Vector3 spawnPos = new Vector3(x, 0, z);
             GameObject spawnObj = null;
@@ -347,7 +365,12 @@ public class GameRunEnvCtrl : AbstractCtrlBase
                 m_HaveSpawnDollorEner = false;
             }
 
-          
+            if (i == bottleDatas.Count-1)
+            {
+                retVal = z;
+
+            }
+
         }
 
         if (SpawnItems.Count > 0)
@@ -357,6 +380,8 @@ public class GameRunEnvCtrl : AbstractCtrlBase
 
         }
 
+
+        return retVal;
     }
 
     /// <summary>
@@ -377,16 +402,18 @@ public class GameRunEnvCtrl : AbstractCtrlBase
 
             if (i > 0)
             {
-                List<string[]> lastItemDatas = bottleDatas[i - 1];
-                string[] posStrs = lastItemDatas[lastItemDatas.Count - 1];
-                float z = float.Parse(posStrs[2]);
-                offSet += z;
-                if (i > 1)
-                {
-                    string[] firstPoszStr = lastItemDatas[0];
-                    float firstZVal = float.Parse(firstPoszStr[2]);
-                    offSet -= firstZVal - 100;
-                }
+                //List<string[]> lastItemDatas = bottleDatas[i - 1];
+                //string[] posStrs = lastItemDatas[lastItemDatas.Count - 1];
+                //float z = float.Parse(posStrs[2]);
+                //offSet += z;
+                //if (i > 1)
+                //{
+                //    string[] firstPoszStr = lastItemDatas[0];
+                //    float firstZVal = float.Parse(firstPoszStr[2]);
+                //    offSet -= firstZVal - 100;
+                //}
+
+                offSet += 50;
 
                 SpawnBottlesAndObstacleWithZOffset(itemDatas, offSet, isDollar);
 
@@ -404,7 +431,7 @@ public class GameRunEnvCtrl : AbstractCtrlBase
             }
             else
             {
-                SpawnBottlesAndObstacle(itemDatas, isDollar);
+                offSet  = SpawnBottlesAndObstacle(itemDatas, isDollar);
             }
             i++;
             yield return new WaitForSeconds(1.5f);
@@ -418,10 +445,11 @@ public class GameRunEnvCtrl : AbstractCtrlBase
     /// <summary>
     /// 生成球瓶和障碍带Z轴偏移
     /// </summary>
-    public void SpawnBottlesAndObstacleWithZOffset(List<string[]> bottleDatas, float ZOffset, bool isDollar)
+    public float SpawnBottlesAndObstacleWithZOffset(List<string[]> bottleDatas, float ZOffset, bool isDollar)
     {
 
         float firstZpos = 0;
+        float retVal = 0;
 
         for (int i = 0; i < bottleDatas.Count; i++)
         {
@@ -458,14 +486,20 @@ public class GameRunEnvCtrl : AbstractCtrlBase
                     case GameTags.TenBottleChunk:
                         chunkType = GameTags.TenDollarChunk;
                         break;
-                }
-               
+                }  
             }
+
+            z += GetAddSpeedVal(i);
 
             Vector3 spawnPos = new Vector3(x, y, z);
             GameObject spawnObj = null;
-
             SpawnBottleWithType(chunkType, spawnObj, spawnPos);
+
+            if (i==bottleDatas.Count-1)
+            {
+                retVal = z;
+
+            }
         }
 
         if (SpawnItems.Count > 0)
@@ -474,7 +508,7 @@ public class GameRunEnvCtrl : AbstractCtrlBase
             MaxLevelLength = tran.position.z;
         }
 
- 
+        return retVal;
     }
 
     /// <summary>
