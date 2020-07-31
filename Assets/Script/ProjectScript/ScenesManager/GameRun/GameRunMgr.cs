@@ -97,7 +97,6 @@ public class GameRunMgr : AbstractMgrBase
         else
         {
             m_UIGameRunCtrl.SetCurrentLevel(-1);
-
             float dollar = RewardGiftSDK.ConvertDollar(DataManager.GoldCoin);
             m_DollarLevelBounce = dollar;
             UserResourceEntity userData = UserPeresistData.Instance.GetUserResource();

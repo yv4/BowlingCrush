@@ -15,7 +15,7 @@ public class ChunkBehaviour : AbstractRoleBehaviour
 
     protected override void GetMemberReference()
     {
-        m_ChunkMoveAction = this.GetComponent<ChunkMoveAction>();
+        //m_ChunkMoveAction = this.GetComponent<ChunkMoveAction>();
     }
 
     protected override void OnInit()
@@ -30,7 +30,7 @@ public class ChunkBehaviour : AbstractRoleBehaviour
 
     protected override void OnUpdate()
     {
-        base.OnUpdate();
+        //base.OnUpdate();
     }
 
     #endregion
@@ -61,7 +61,7 @@ public class ChunkBehaviour : AbstractRoleBehaviour
     /// <param name="enable"></param>
     public void MoveCtrl(bool enable)
     {
-        m_ChunkMoveAction.MoveCtrl(enable);
+        //m_ChunkMoveAction.MoveCtrl(enable);
     }
 
     /// <summary>

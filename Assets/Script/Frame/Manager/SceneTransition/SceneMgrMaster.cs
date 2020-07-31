@@ -114,6 +114,7 @@ public class SceneMgrMaster : SingletonMono<SceneMgrMaster>
         {
             if (!m_SetBgClear)
             {
+                
                 GameObject[] objs = m_LoadScene.GetRootGameObjects();
 
                 foreach (GameObject obj in objs)
@@ -122,16 +123,24 @@ public class SceneMgrMaster : SingletonMono<SceneMgrMaster>
                     {
                         Image bg = BaseOption.FindChild<Image>(obj, "Loader");
                         bg.color = Color.clear;
-                        GameObject logo = BaseOption.FindChild(bg.gameObject, "Logo");
-                        if (logo!=null)
-                        {
-                            logo.SetActive(false);
-                        }
+                        GameObject textObj = BaseOption.FindChild(obj, "PercentText");
+                        GameObject scroll = BaseOption.FindChild(obj, "Scrollbar");
+                        GameObject progress = BaseOption.FindChild(obj, "ProgressBarBg");
+
+                        textObj.SetActive(false);
+                        scroll.SetActive(false);
+                        progress.SetActive(false);
+                    }
+
+                    if (obj.name.Equals("GameLoadMgr"))
+                    {
+                        GameLoadingMgr mgr = obj.GetComponent<GameLoadingMgr>();
+                        mgr.SetProgressComplete();
                     }
                 }
                 m_SetBgClear = true;
             }
-           
+
 
             EnableOrDisableRootObj(m_LoadScene.GetRootGameObjects(), false);
         }

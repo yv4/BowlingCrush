@@ -35,7 +35,7 @@ public class DollorEnterBehaviour : SpawnItemBehaviour
 
     #region 成员方法
 
-    public override void Collider()
+    public override void Collider(Transform collider = null)
     {
         base.Collider();
         this.gameObject.SetActive(false);

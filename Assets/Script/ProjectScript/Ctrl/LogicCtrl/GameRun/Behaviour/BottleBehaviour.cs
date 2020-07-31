@@ -36,11 +36,11 @@ public class BottleBehaviour : SpawnItemBehaviour
 
     #region 成员方法
 
-    public override void Collider()
+    public override void Collider(Transform collider = null)
     {
         base.Collider();
 
-        m_BottleHitAction.StartCollider();
+        m_BottleHitAction.StartCollider(collider);
 
         EventObserverMgr<int>.Instance.Dispatch(ObserverEventType.PlayerCtrlEvent, ObserverEventContent.ColliderBottle, Bounce);
     }
@@ -51,15 +51,17 @@ public class BottleBehaviour : SpawnItemBehaviour
     /// <param name="meshObjPath"></param>
     public void SetMesh(string meshObjPath)
     {
-        if (m_ChangeMeshAction==null)
+        if (m_ChangeMeshAction == null)
         {
             m_ChangeMeshAction = this.GetComponent<ChangeMeshAction>();
         }
-        m_ChangeMeshAction.SetMesh(meshObjPath);
+        //m_ChangeMeshAction.SetMesh(meshObjPath);
+        m_ChangeMeshAction = GetComponent<ChangeMeshAction>();
+        m_ChangeMeshAction.SetMesh("ping_01");
         Timer.Register(1f, () => {
             m_BottleHitAction.GetObjs();
         });
-       
+
     }
 
     #endregion

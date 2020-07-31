@@ -54,6 +54,11 @@ public class SceneMgr  {
                     asyncOperation = SceneManager.LoadSceneAsync(SceneType.Manual.ToString(), mode);
                 }
                 break;
+            case SceneType.NewRun:
+                {
+                    asyncOperation = SceneManager.LoadSceneAsync(SceneType.NewRun.ToString(), mode);
+                }
+                break;
 
             default:
                  asyncOperation=null;

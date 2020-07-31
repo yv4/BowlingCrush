@@ -18,8 +18,8 @@ public class ChangeParticleSize : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Undo.RecordObject(this.gameObject, "Modify Obj");
-        EditorUtility.SetDirty(this.gameObject);
+        //Undo.RecordObject(this.gameObject, "Modify Obj");
+        //EditorUtility.SetDirty(this.gameObject);
     }
 
     // Update is called once per frame

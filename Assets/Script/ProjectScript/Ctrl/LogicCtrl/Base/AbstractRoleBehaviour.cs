@@ -67,7 +67,9 @@ public abstract class AbstractRoleBehaviour : MonoBehaviour {
         this.m_Animator = null;
     }
 
-    public virtual void Collider() { }
+    public virtual void Collider(Transform tran = null) { }
+
+
 
     #endregion
 

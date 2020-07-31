@@ -51,10 +51,10 @@ public class EndBehaviour : SpawnItemBehaviour
     {
         base.MoveCtrl(enable);
 
- 
+
     }
 
-    public override void Collider()
+    public override void Collider(Transform collider = null)
     {
         base.Collider();
 

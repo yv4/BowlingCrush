@@ -83,6 +83,11 @@ public class GameLoadingMgr : AbstractMgrBase
         m_Async.allowSceneActivation = false;
     }
 
+    public void SetProgressComplete()
+    {
+        m_LoadingCtrl.SetCompleteLoad();
+    }
+
     #endregion
 
     #region 委托方法
